@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Brownie Orders</title>
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+
+<body class="admin-shell">
+    <main class="admin-main">
+        <header class="admin-header">
+            <div>
+                <p class="eyebrow">MINI'S FUDGY BROWNIES</p>
+                <h1>Brownie Orders</h1>
+            </div><button id="logout">Sign out</button>
+        </header>
+        <div class="toolbar"><input id="search" placeholder="Search order, customer, phone"><select id="status">
+                <option value="">All statuses</option>
+                <option>NEW</option>
+                <option>CONFIRMED</option>
+                <option>PREPARING</option>
+                <option>OUT_FOR_DELIVERY</option>
+                <option>DELIVERED</option>
+                <option>CANCELLED</option>
+            </select></div>
+        <p class="error" id="error" role="alert"></p>
+        <section class="orders" id="orders"></section>
+    </main>
+    <div class="modal" id="detailModal" hidden>
+        <div class="modal-card" id="detail"></div>
+    </div>
+    <script src="/admin/admin.js"></script>
+</body>
+
+</html>

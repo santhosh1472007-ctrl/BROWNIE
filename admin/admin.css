@@ -1,0 +1,228 @@
+:root {
+    --choc: #241209;
+    --cream: #f7eede;
+    --paper: #fbf6ec;
+    --caramel: #bd7a3c;
+    --ink: #251507
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', system-ui, sans-serif
+}
+
+.admin-shell {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: radial-gradient(circle at top right, #f1d6ac, var(--paper) 48%)
+}
+
+.login-card,
+.admin-main {
+    max-width: 1120px;
+    margin: 0 auto
+}
+
+.login-card {
+    max-width: 420px;
+    background: var(--cream);
+    padding: 32px;
+    border-radius: 22px;
+    box-shadow: 0 24px 60px #24120920
+}
+
+.eyebrow {
+    color: var(--caramel);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .12em
+}
+
+.login-card h1 {
+    font-family: Georgia, serif;
+    font-size: 36px;
+    margin: 8px 0
+}
+
+.login-card p {
+    line-height: 1.55;
+    color: #4b3423
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 18px 0
+}
+
+input,
+select {
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    padding: 13px 14px;
+    border: 1px solid #24120930;
+    border-radius: 10px;
+    background: #fffaf0;
+    font: inherit
+}
+
+button {
+    border: 0;
+    border-radius: 999px;
+    background: var(--choc);
+    color: var(--cream);
+    padding: 13px 20px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.error {
+    color: #9b3d2e !important;
+    min-height: 20px
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px
+}
+
+.admin-header h1 {
+    font: 600 42px Georgia, serif;
+    margin: 0
+}
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px
+}
+
+.toolbar input,
+.toolbar select {
+    display: inline-block;
+    width: auto;
+    margin: 0
+}
+
+.orders {
+    display: grid;
+    gap: 12px
+}
+
+.order-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+    background: var(--cream);
+    padding: 18px 20px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px #24120912;
+    cursor: pointer
+}
+
+.order-card h3 {
+    margin: 0 0 6px;
+    font: 600 20px Georgia, serif
+}
+
+.muted {
+    color: #6b5140;
+    font-size: 13px
+}
+
+.status {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .06em;
+    color: var(--caramel)
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #24120999;
+    display: grid;
+    place-items: center;
+    padding: 20px
+}
+
+.modal[hidden] {
+    display: none
+}
+
+.modal-card {
+    width: min(620px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    background: var(--paper);
+    border-radius: 20px;
+    padding: 26px
+}
+
+.modal-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px
+}
+
+.modal-head h2 {
+    font: 600 30px Georgia, serif;
+    margin: 0
+}
+
+.detail {
+    line-height: 1.6;
+    white-space: pre-line
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #24120918
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px
+}
+
+@media(max-width:600px) {
+    .admin-shell {
+        padding: 22px 14px
+    }
+
+    .admin-header {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .admin-header h1 {
+        font-size: 34px
+    }
+
+    .order-card {
+        grid-template-columns: 1fr
+    }
+
+    .toolbar input,
+    .toolbar select {
+        width: 100%
+    }
+}

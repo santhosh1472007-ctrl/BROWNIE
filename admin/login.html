@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Brownie Orders · Login</title>
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+
+<body class="admin-shell">
+    <main class="login-card">
+        <p class="eyebrow">MINI'S FUDGY BROWNIES</p>
+        <h1>Owner login</h1>
+        <p>Sign in to manage incoming brownie orders.</p>
+        <form id="loginForm"><label>Email<input id="email" type="email" autocomplete="email"
+                    required></label><label>Password<input id="password" type="password" autocomplete="current-password"
+                    required></label><button type="submit">Sign in</button>
+            <p class="error" id="error" role="alert"></p>
+        </form>
+    </main>
+    <script>
+        const form = document.querySelector('#loginForm');
+        form.addEventListener('submit', async event => {
+            event.preventDefault();
+            const error = document.querySelector('#error');
+            error.textContent = '';
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: document.querySelector('#email').value, password: document.querySelector('#password').value })
+                });
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.error || 'Unable to sign in.');
+                sessionStorage.setItem('brownie.adminToken', data.token);
+                location.href = '/admin';
+            } catch (error) {
+                document.querySelector('#error').textContent = error instanceof TypeError
+                    ? 'The order service is unavailable. Start the backend and try again.'
+                    : error.message;
+            }
+        });
+    </script>
+</body>
+
+</html>
